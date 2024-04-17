@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:radar/pages/register.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -121,9 +122,12 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
+
             //forgot password
             GestureDetector(
-              onTap: (){},
+              onTap: (){
+                print("forgot password");
+              },
               child: Container(
                 alignment: AlignmentDirectional.centerEnd,
                 child: const Text("Forgot password?", style: TextStyle(
@@ -208,15 +212,21 @@ class _LoginState extends State<Login> {
             ),
            
             //don't have an account register
-            Container(
-              alignment: Alignment.center,
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Don't have an account?"),
-                  SizedBox(width: 5,),
-                  Text("Sign Up", style: TextStyle(color: Colors.green),),
-                ],
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Register()));
+                // Navigator.pop(context, MaterialPageRoute(builder: (context) => const Login()));
+              },
+              child: Container(
+                alignment: Alignment.center,
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Don't have an account?"),
+                    SizedBox(width: 5,),
+                    Text("Sign Up", style: TextStyle(color: Colors.green),),
+                  ],
+                ),
               ),
             )
           ],
