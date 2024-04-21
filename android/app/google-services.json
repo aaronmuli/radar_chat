@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "212660161739",
+    "project_id": "radar-chat-40f53",
+    "storage_bucket": "radar-chat-40f53.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212660161739:android:55127f3a73589da6569f4e",
+        "android_client_info": {
+          "package_name": "com.example.radar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMYXzAHktHiAzwsWPEoDh1Sy483emq67Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212660161739:android:6f3db5f1ba191138569f4e",
+        "android_client_info": {
+          "package_name": "com.example.radar_chat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMYXzAHktHiAzwsWPEoDh1Sy483emq67Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

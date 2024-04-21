@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:radar/pages/homepage.dart';
 import 'package:radar/pages/login.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,6 +10,19 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+  
+
+  void initState() {
+    // super.initState();
+    // firebaseInit();
+  }
+
+  firebaseInit() async {
+    var app = await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+  }
+
 
   // This widget is the root of your application.
   @override

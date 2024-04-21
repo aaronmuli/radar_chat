@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:radar/pages/login.dart';
+import 'package:radar/helpers/register_handlers.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -20,6 +20,7 @@ class _RegisterState extends State<Register> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController password2Controller = TextEditingController();
 
+  RegisterHandlers registerHandlers = RegisterHandlers();
   
 
   @override
@@ -161,7 +162,13 @@ class _RegisterState extends State<Register> {
            
 
             GestureDetector(
-              onTap: (){},
+              onTap: (){
+                registerHandlers.register({
+                  "email": emailController.text,
+                  "password1": passwordController.text,
+                  "password2": password2Controller.text, 
+                });
+              },
               child: Container(
                 alignment: Alignment.center,
                 width: 300,
@@ -205,7 +212,9 @@ class _RegisterState extends State<Register> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                     GestureDetector(
-                    onTap: (){},
+                    onTap: (){
+                      registerHandlers.registerWithGoogle();
+                    },
                     child: Container(
                       padding: const EdgeInsets.all(8),
                       width: 50,
@@ -217,9 +226,13 @@ class _RegisterState extends State<Register> {
                       child: Image.asset("lib/assets/google.png", scale: 12,),
                       ),
                     ),
+                    
                     const SizedBox(width: 15,),
+
                     GestureDetector(
-                    onTap: (){},
+                    onTap: (){
+                      registerHandlers.registerWithFacebook();
+                    },
                     child: Container(
                       padding: const EdgeInsets.all(8),
                       width: 50,
@@ -237,7 +250,6 @@ class _RegisterState extends State<Register> {
             //don't have an account register
             GestureDetector(
               onTap: () {
-                // Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
                 Navigator.pop(context, MaterialPageRoute(builder: (context) => const Register()));
               },
               child: Container(

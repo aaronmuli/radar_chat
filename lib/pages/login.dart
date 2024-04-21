@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:radar/pages/register.dart';
+import 'package:radar/helpers/login_handlers.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -23,6 +22,8 @@ class _LoginState extends State<Login> {
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  LoginHandlers loginHandlers = LoginHandlers();
 
   
 
@@ -126,7 +127,7 @@ class _LoginState extends State<Login> {
             //forgot password
             GestureDetector(
               onTap: (){
-                print("forgot password");
+                loginHandlers.forgotPassword(context, emailController.text);
               },
               child: Container(
                 alignment: AlignmentDirectional.centerEnd,
@@ -138,7 +139,12 @@ class _LoginState extends State<Login> {
             ),
 
             GestureDetector(
-              onTap: (){},
+              onTap: (){
+                loginHandlers.login({
+                  "email" : emailController.text,
+                  "password" : passwordController.text,
+                });
+              },
               child: Container(
                 alignment: Alignment.center,
                 width: 300,
@@ -160,17 +166,17 @@ class _LoginState extends State<Login> {
                 Container(
                   width: 80,
                   height: 1,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.black38
                   ),
                 ),
-                SizedBox(width: 5,),
-                Text("or sign in with"),
-                SizedBox(width: 5,),
+                const SizedBox(width: 5,),
+                const Text("or sign in with"),
+                const SizedBox(width: 5,),
                 Container(
                   width: 80,
                   height: 1,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.black38
                   ),
                 ),
@@ -182,7 +188,9 @@ class _LoginState extends State<Login> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                     GestureDetector(
-                    onTap: (){},
+                    onTap: (){
+                      loginHandlers.loginWithGoogle();
+                    },
                     child: Container(
                       padding: const EdgeInsets.all(8),
                       width: 50,
@@ -194,9 +202,13 @@ class _LoginState extends State<Login> {
                       child: Image.asset("lib/assets/google.png", scale: 12,),
                       ),
                     ),
+
                     const SizedBox(width: 15,),
+                    
                     GestureDetector(
-                    onTap: (){},
+                    onTap: (){
+                      loginHandlers.loginWithFacebook();
+                    },
                     child: Container(
                       padding: const EdgeInsets.all(8),
                       width: 50,
